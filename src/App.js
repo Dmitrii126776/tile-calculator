@@ -5,12 +5,13 @@ import {useEffect, useState} from "react";
 
 function App() {
 
-    const [areaWidth, setAreaWidth] = useState(0)
-    const [areaHeight, setAreaHeight] = useState(0)
-    const [areaPercent, setAreaPercent] = useState(10)
-    const [resultArea, setResultArea] = useState(0)
+    const [areaWidth, setAreaWidth] = useState(0) // ft
+    const [areaHeight, setAreaHeight] = useState(0) // ft
+    const [areaPercent, setAreaPercent] = useState(10) // 10% addition
 
-    const [tilesWidth, setTilesWidth] = useState(0)
+    const [resultArea, setResultArea] = useState(0) // ft^2
+
+    const [tilesWidth, setTilesWidth] = useState(0) // in
     const [tilesHeight, setTilesHeight] = useState(0)
     const [resultAmount, setResultAmount] = useState(0)
 
@@ -74,11 +75,11 @@ function App() {
         resultAmount, select, pricePiece, totalPricePiece, boxQuantity, tilesInBox, totalPriceBox]);
 
     return (
-        <div className="App">
+        <div className="container">
             <h1>Tiles calculator</h1>
             <Form>
-                <Row className="row-cols-lg-auto g-3 align-items-center">
-                    <Col xs='4'>
+                <Row className="row">
+                    <Col className="col-md-4">
                         <FormGroup>
                             <Label> Area Width, ft </Label>
                             <Input min='0' type="number" value={areaWidth} onChange={e => {
@@ -87,7 +88,7 @@ function App() {
                             }}/>
                         </FormGroup>
                     </Col>
-                    <Col xs='4'>
+                    <Col className="col-md-4">
                         <FormGroup>
                             <Label> Area Height, ft </Label>
                             <Input min='0' type="number" value={areaHeight} onChange={e => {
@@ -96,7 +97,7 @@ function App() {
                             }}/>
                         </FormGroup>
                     </Col>
-                    <Col xs='4'>
+                    <Col className="col-md-4">
                         <FormGroup>
                             <Label> Area Addition Percent </Label>
                             <Input min='0' type="number" value={areaPercent} onChange={e => {
@@ -109,8 +110,8 @@ function App() {
             </Form>
 
             <Form>
-                <Row className="row-cols-lg-auto g-3 align-items-center">
-                    <Col xs='4'>
+                <Row className="row mt-5">
+                    <Col className="col-md-3">
                         <FormGroup>
                             <Label> Tiles Width, ft </Label>
                             <Input min='0' type="number"
@@ -120,7 +121,7 @@ function App() {
                             }}/>
                         </FormGroup>
                     </Col>
-                    <Col xs='4'>
+                    <Col className="col-md-3">
                         <FormGroup>
                             <Label> Tiles Height, ft </Label>
                             <Input min='0' type="number"
@@ -130,7 +131,7 @@ function App() {
                             }}/>
                         </FormGroup>
                     </Col>
-                    <Col xs='4'>
+                    <Col className="col-md-3">
                         <FormGroup>
                             <Label> Sell Options </Label>
                             <Input value={select} onChange={e => {
@@ -144,7 +145,7 @@ function App() {
                         </FormGroup>
                     </Col>
                     {!modal &&
-                        <Col xs='4'>
+                        <Col className="col-md-3">
                             <FormGroup>
                                 <Label>Price per piece</Label>
                                 <Input value={pricePiece} onChange={e => {
@@ -156,7 +157,7 @@ function App() {
                         </Col>
                     }
                     {modal &&
-                        <Col xs='4'>
+                        <Col className="col-md-3">
                             <FormGroup>
                                 <Label>Price per box</Label>
                                 <Input value={priceBox} onChange={e => {
@@ -169,8 +170,8 @@ function App() {
                     }
                 </Row>
                 {modal &&
-                    <Row className="row-cols-lg-auto g-3 align-items-center">
-                        <Col xs='4'>
+                    <Row className="row mt-5">
+                        <Col className="col-md-3">
                             <FormGroup>
                                 <Label>Tiles in Box </Label>
                                 <Input value={tilesInBox} onChange={e => {
